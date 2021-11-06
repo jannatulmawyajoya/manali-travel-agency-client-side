@@ -29,73 +29,73 @@ const Login = () => {
             })
     }
 
-    const toggleLogin = e => {
-        setIsLogin(e.target.checked);
-    }
+    // const toggleLogin = e => {
+    //     setIsLogin(e.target.checked);
+    // }
 
-    const handleNameChange = e => {
-        setName(e.target.value)
-    }
-    const handleEmailChange = e => {
-        setEmail(e.target.value)
-    }
-    const handlePasswordChange = e => {
-        setPassword(e.target.value)
-    }
-    const handleRegistration = (e) => {
-        e.preventDefault();
-        console.log(email, password);
-        if (password.length < 6) {
-            setError('Password Must Be At Least 6 Characters Long. ')
-            return;
-        }
+    // const handleNameChange = e => {
+    //     setName(e.target.value)
+    // }
+    // const handleEmailChange = e => {
+    //     setEmail(e.target.value)
+    // }
+    // const handlePasswordChange = e => {
+    //     setPassword(e.target.value)
+    // }
+    // const handleRegistration = (e) => {
+    //     e.preventDefault();
+    //     console.log(email, password);
+    //     if (password.length < 6) {
+    //         setError('Password Must Be At Least 6 Characters Long. ')
+    //         return;
+    //     }
 
-        isLogin ? processLogin(email, password) : createNewUser(email, password);
+    //     isLogin ? processLogin(email, password) : createNewUser(email, password);
 
-    }
+    // }
 
-    const processLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                setError('');
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-    }
+    // const processLogin = (email, password) => {
+    //     signInWithEmailAndPassword(auth, email, password)
+    //         .then(result => {
+    //             const user = result.user;
+    //             console.log(user);
+    //             setError('');
+    //         })
+    //         .catch(error => {
+    //             setError(error.message);
+    //         })
+    // }
 
-    const createNewUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-                verifyEmail();
-                setUserName();
-                setError('');
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-    }
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(result => {
+    // const createNewUser = (email, password) => {
+    //     createUserWithEmailAndPassword(auth, email, password)
+    //         .then(result => {
+    //             const user = result.user;
+    //             console.log(user);
+    //             verifyEmail();
+    //             setUserName();
+    //             setError('');
+    //         })
+    //         .catch(error => {
+    //             setError(error.message);
+    //         })
+    // }
+    // const setUserName = () => {
+    //     updateProfile(auth.currentUser, { displayName: name })
+    //         .then(result => {
 
-            })
-    }
+    //         })
+    // }
 
-    const verifyEmail = () => {
-        sendEmailVerification(auth.currentUser)
-            .then(result => {
-                console.log(result);
-            })
-    }
+    // const verifyEmail = () => {
+    //     sendEmailVerification(auth.currentUser)
+    //         .then(result => {
+    //             console.log(result);
+    //         })
+    // }
     return (
         <div>
 
-            <div className="mx-auto w-50 login-form ">
+            {/* <div className="mx-auto w-50 login-form ">
                 <form onSubmit={handleRegistration}>
                     <h2 className="text-primary">Please {isLogin ? 'Login' : 'Register'}</h2>
                     {!isLogin && <div class="row mb-3">
@@ -131,11 +131,11 @@ const Login = () => {
                     <button type="submit" class="btn btn-primary">{isLogin ? 'Login' : 'Register'}</button>
                 </form>
 
-            </div>
+            </div> */}
 
 
 
-            <div>--------------Or-----------------</div>
+            <h1>Please Login</h1>
 
             <button onClick={handleGoogleLogin} className="btn btn-warning mb-3">Google Sign In</button>
         </div>
